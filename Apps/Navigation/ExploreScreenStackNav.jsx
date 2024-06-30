@@ -9,14 +9,14 @@ export default function ExploreScreenStackNav() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="explore"
+        name="Explore"
         component={ExploreScreen}
         options={{
           headerShown: false,
         }}
       />
       <Stack.Screen
-        name="product-detail"
+        name="ProductDetail"
         component={ProductDetail}
         options={{
           headerStyle: {

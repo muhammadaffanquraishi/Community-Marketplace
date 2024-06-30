@@ -65,7 +65,7 @@ export default function ExploreScreen() {
     }
   };
   return (
-    <View>
+    <ScrollView nestedScrollEnabled={true}>
       <View
         className="p-[10px] px-5 flex flex-row items-center gap-3
        bg-blue-50 mt-10 rounded-full border-[1px] border-blue-200"
@@ -85,12 +85,12 @@ export default function ExploreScreen() {
           <Text className="text-white">Go</Text>
         </TouchableOpacity>
       </View>
-      <ScrollView className="p-5 py-8" nestedScrollEnabled={true}>
+      <View className="p-5 py-8" >
         <Text className="text-[30px] font-bold">
           {searchText ? "Search Results" : "Explore More"}
         </Text>
         <LatestItemList latestItemList={productList} />
-      </ScrollView>
-    </View>
+      </View>
+    </ScrollView>
   );
 }
