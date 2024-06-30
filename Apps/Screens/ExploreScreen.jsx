@@ -41,7 +41,7 @@ export default function ExploreScreen() {
   /**
    * Used to get all Products
    */
-  console.log("Affan", productList);
+
   const getAllProducts = async (searchTerm) => {
     try {
       setproductList([]);
@@ -52,12 +52,10 @@ export default function ExploreScreen() {
             orderBy("createdAt", "desc")
           )
         : query(collection(db, "UserPost"), orderBy("createdAt", "desc"));
-      console.log("query is", q);
+
       const snapshot = await getDocs(q);
-      // console.log("Affan26", snapshot)
-      // console.log(snapshot.size)
+
       const products = snapshot.docs.map((doc) => {
-        console.log("Affan24", doc.data());
         return doc.data();
       });
 
@@ -69,8 +67,8 @@ export default function ExploreScreen() {
   return (
     <View>
       <View
-        className="p-[9px] px-5 flex flex-row items-center gap-3
-       bg-blue-50 mt-5 rounded-full border-[1px] border-blue-200"
+        className="p-[10px] px-5 flex flex-row items-center gap-3
+       bg-blue-50 mt-10 rounded-full border-[1px] border-blue-200"
       >
         <Ionicons name="search" size={24} color="gray" />
         <TextInput

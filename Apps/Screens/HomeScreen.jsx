@@ -18,7 +18,7 @@ export default function HomeScreen() {
     getCategoryList();
     getLatestItemList();
   }, []);
-  // console.log("affan",categoryList,sliderList,latestItemList)
+  
   /**
    * used to get silder for home screen
    */

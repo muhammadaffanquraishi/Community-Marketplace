@@ -42,7 +42,7 @@ export default function MyProducts() {
     setLoading(false);
     const postsToShow = [];
     snapshot.forEach((doc) => {
-      console.log(doc.data());
+      
       postsToShow.push(doc.data());
     });
     setProductList([...postsToShow]);

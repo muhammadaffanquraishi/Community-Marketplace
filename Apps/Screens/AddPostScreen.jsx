@@ -42,7 +42,7 @@ export default function AddPostScreen() {
       setCategoryList([]);
       const querySnapsot = await getDocs(collection(db, "Category"));
       querySnapsot.forEach((doc) => {
-        // console.log("DocsAddPost:",doc.data());
+        
         setCategoryList((categoryList) => [...categoryList, doc.data()]);
       });
     } catch (error) {
@@ -125,7 +125,7 @@ export default function AddPostScreen() {
           validate={(values) => {
             const errors = {};
             if (!values.title) {
-              console.log("Title not Present");
+              
               ToastAndroid.show("Title Must be There", ToastAndroid.SHORT);
               errors.name = "Title Must be There";
             }
