@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import HomeScreen from '../Screens/HomeScreen';
 import ItemList from '../Screens/ItemList';
 import ProductDetail from '../Screens/ProductDetail';
+import ExploreScreen from '../Screens/ExploreScreen';
 
 const Stack= createStackNavigator();
 
@@ -24,6 +25,11 @@ export default function HomeScreenStackNav() {
               headerTintColor:'#fff'
             })
             }
+        />
+        <Stack.Screen name='explore' component={ExploreScreen} 
+            options={{
+                headerShown:false
+            }}
         />
         <Stack.Screen name='product-detail' 
         component={ProductDetail}

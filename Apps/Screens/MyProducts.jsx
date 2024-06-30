@@ -35,13 +35,12 @@ export default function MyProducts() {
     const q=query(collection(db,'UserPost'), where('userEmail','==',user?.primaryEmailAddress?.emailAddress));
     const snapshot=await getDocs(q);
     setLoading(false);
+    const postsToShow = [];
     snapshot.forEach(doc => {
-      console.log(doc.data())
-      setProductList(productList=>[...productList,doc.data()]);
-    })
-    // snapshot.forEach(doc=>{
-    //   setProductList(productList=>[...productList,doc.data()]);
-    // })
+      console.log(doc.data());
+      postsToShow.push(doc.data());
+    });
+    setProductList([...postsToShow]);
   }
   return (
     <ScrollView className="p-2">

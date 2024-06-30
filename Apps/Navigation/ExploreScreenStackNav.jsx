@@ -8,7 +8,7 @@ const Stack=createStackNavigator();
 export default function ExploreScreenStackNav() {
   return (
     <Stack.Navigator>
-        <Stack.Screen name='eplore-tab' component={ExploreScreen} 
+        <Stack.Screen name='explore' component={ExploreScreen} 
             options={{
                 headerShown:false
             }}

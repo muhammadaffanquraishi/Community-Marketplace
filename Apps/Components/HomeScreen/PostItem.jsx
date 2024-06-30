@@ -3,7 +3,7 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 
 export default function PostItem({item}) {
-
+console.log("Affan 2",item)
   const navigation=useNavigation();
   
   return (

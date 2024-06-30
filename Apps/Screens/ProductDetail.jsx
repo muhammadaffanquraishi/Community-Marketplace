@@ -9,7 +9,7 @@ import { app } from '../../firebaseConfig';
 export default function ProductDetail(navigation) {
     const {params}=useRoute();
     const[product,setProduct]=useState([]);
-    const user=useUser();
+    const {user} =useUser();
     const db=getFirestore(app);
     const nav=useNavigation();
     useEffect(()=>{
@@ -18,7 +18,7 @@ export default function ProductDetail(navigation) {
     },[params, navigation])
     
     const shareButton=()=>{
-        navigation.setOptions({
+        nav.setOptions({
             headerRight:()=>(
                 <Ionicons name="share-social-sharp" size={24}
                  onPress={()=> shareProduct()}
@@ -48,7 +48,7 @@ export default function ProductDetail(navigation) {
         Linking.openURL('mailto: '+product.userEmail+"?subject= "+subject+"&body= "+body);
     }
     const deleteUserPost=()=>{
-      Alert.alert('Are you sure you want to delete this post?',[
+      Alert.alert('Delete Post','Are you sure you want to delete this post?',[
         {
         text:'Yes',
         onPress:()=>deletFromFirestore()
@@ -67,9 +67,14 @@ export default function ProductDetail(navigation) {
         const q=query(collection(db,'UserPost'),where('title','==',product.title))
         const snapshot=await getDocs(q);
         snapshot.forEach(doc=>{
-          deleteDoc(doc,ref).then(resp=>{
+          deleteDoc(doc.ref).then(resp=>{
             console.log("Deleted the Doc...");
-            nav.goBack();
+            const navRoutes = nav.getState()?.routes;
+            if(navRoutes[navRoutes.length - 2]) {
+              nav.push(navRoutes[navRoutes.length - 2].name, { reload: true });
+            } else {
+              nav.goBack();
+            }
           })
         })
     }

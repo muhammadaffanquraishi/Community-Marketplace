@@ -7,6 +7,7 @@ import {app} from './../../firebaseConfig'
 import { collection, getDocs } from "firebase/firestore";
 import Categories from './../Components/HomeScreen/Categories'
 import LatestItemList from '../Components/HomeScreen/LatestItemList'
+import { useRoute } from '@react-navigation/native'
 
 export default function HomeScreen() {
   const db= getFirestore(app)
